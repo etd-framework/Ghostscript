@@ -152,4 +152,30 @@ class Ghostscript
 
         return $device;
     }
+    
+    /**
+     * Create PDF to PostScript device object
+     *
+     * @param null|string $outputFile
+     *
+     * @return PdfWrite
+     */
+    public function createPdfToPsDevice($outputFile = null)
+    {
+        $builder = $this->createProcessBuilder();
+        $arguments = $this->createProcessArguments([
+            '-dSAFER',
+            '-dBATCH',
+            '-P-',
+            '-dNOPAUSE'
+        ]);
+
+        $device = new PsWrite($builder, $arguments);
+
+        if (null !== $outputFile) {
+            $device->setOutputFile($outputFile);
+        }
+
+        return $device;
+    }
 }
