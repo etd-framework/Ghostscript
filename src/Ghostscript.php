@@ -8,6 +8,7 @@
 namespace GravityMedia\Ghostscript;
 
 use GravityMedia\Ghostscript\Device\PdfWrite;
+use GravityMedia\Ghostscript\Device\PsWrite;
 use GravityMedia\Ghostscript\Process\Arguments as ProcessArguments;
 use Symfony\Component\Process\ProcessBuilder;
 
